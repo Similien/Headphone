@@ -1,0 +1,20 @@
+{
+  "name": "phono",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": " node-sass ./Dist/sass/main.scss ./Dist/css/style.css",
+    "watch": " nodemon -e SCSS -x \"npm run sass \" "
+  },
+  "author": "Smith S",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "simplelightbox": "^2.1.3"
+  }
+}

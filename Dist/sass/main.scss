@@ -1,0 +1,229 @@
+@import "./reset";
+@import "./util.scss";
+@import "./variables";
+.navbar {
+    font-size: 1.2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .logo {
+        font-size: 2rem;
+    }
+    .nav {
+        justify-self: flex-end;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            padding: 0 1rem;
+            &:hover {
+                color: $gry1;
+            }
+        }
+    }
+}
+
+.section {
+    //section A
+    &-a {
+        margin: 2rem 0;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 3rem;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            font-size: 4rem;
+            color: $primary-color;
+        }
+        p {
+            margin: 1rem 0;
+        }
+    }
+    // Section B
+    &-b {
+        position: relative;
+        background: url('../img/section-b.jpg') no-repeat bottom center/cover;
+        height: 600px;
+        &-inner {
+            color: $wht;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100%;
+            margin: auto;
+            max-width: 860px;
+            padding: 5rem 0;
+            &-text {
+                font-size: 1.5rem;
+                margin-top: 1rem;
+            }
+        }
+    }
+    //Section-C
+    &-c {
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            // make image and a tags fit = no spaces in between
+            img,
+            a {
+                width: 100%;
+                height: 100%;
+            }
+            a:first-child {
+                grid-row: 1/3;
+                grid-column: 1/3;
+            }
+            a:nth-child(2) {
+                grid-column: 3/5;
+            }
+        }
+    }
+}
+
+//footer
+.section-footer {
+    background: $primary-color;
+    color: $wht;
+    padding: 4rem 0;
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 1rem;
+    }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    h3 {
+        margin-bottom: .7rem;
+    }
+    a {
+        line-height: 1.9;
+        color: $gry1;
+        i {
+            color: $dGry3;
+        }
+    }
+}
+
+.email-form {
+    width: 100%;
+    display: inline-block;
+    background: $dGry2;
+    position: relative;
+    border-radius: 20px;
+    line-height: 0;
+    margin-top: 1rem;
+    .submit {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
+        background: #eee;
+        font-size: 1rem;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        border: 0;
+        color: $primary-color;
+        cursor: pointer;
+        border-radius: 0 20px 20px 0;
+    }
+}
+
+.form-control {
+    display: inline-block;
+    border: 0;
+    outline: 0;
+    font-size: 1rem;
+    color: $dGry1;
+    background: transparent;
+    font-family: inherit;
+    margin: 0;
+    padding: 0 .3rem 0 1.5rem;
+    width: 100%;
+    height: 45px;
+    border-radius: 20px;
+}
+
+// Media Queries
+@media(max-width:700px) {
+    .section {
+        &-a {
+            .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                div:first-child {
+                    order: 2;
+                }
+                div:nth-child(2) {
+                    order: -1;
+                }
+            }
+            img {
+                width: 75%;
+                margin: auto;
+            }
+        }
+        &-b {
+            &-inner {
+                h2 {
+                    font-size: 3.5rem;
+                }
+            }
+        }
+        &-c {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+                a:first-child {
+                    grid-column: 1/4;
+                    grid-row: 1;
+                    order: 1;
+                }
+                a:nth-child(2) {
+                    grid-column: 1/4;
+                    grid-row: 2/2;
+                }
+                a:nth-child(3) {
+                    grid-column: 1;
+                    grid-row: 3;
+                }
+                a:nth-child(4) {
+                    grid-column: 2;
+                    grid-row: 3;
+                }
+                a:nth-child(5) {
+                    grid-column: 3;
+                    grid-row: 3;
+                }
+                a:nth-child(6) {
+                    display: none;
+                }
+            }
+        }
+    }
+    .section-footer {
+        padding: 2rem 0;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+        div:nth-child(2),
+        div:nth-child(3) {
+            display: none;
+        }
+    }
+}
